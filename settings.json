@@ -1,0 +1,7 @@
+{
+    "default": {
+		"scheme": "https",
+		"domain": "${org}-${env}.apigee.net/mock/v1${deploymentSuffix}",
+		"apiProxyId": "02"	
+	}
+}
