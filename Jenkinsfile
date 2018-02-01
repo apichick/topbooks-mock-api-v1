@@ -6,7 +6,8 @@ pipeline {
             steps {
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'apigee-credentials',
                             usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {     
-                    sh 'echo $USERNAME'
+                    sh 'echo "USERNAME: ${USERNAME}"'
+                    sh 'echo "PASSWORD: ${USERNAME}"'
                 }
             }
         }
