@@ -1,10 +1,12 @@
 pipeline {
 
-    node { 
-    	withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'apigee-credentials',
-                    usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']])     
+    agent {
+        node { 
+            withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'apigee-credentials',
+                        usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']])     
 
-	}
+        }
+    }
 	
     stage('Test'){
 
