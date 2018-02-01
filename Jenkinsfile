@@ -9,9 +9,9 @@ pipeline {
     }
 	stages {
         stage('Test'){
-
-            sh 'echo $USERNAME'
-
+            steps {
+                sh 'echo $USERNAME'
+            }
         }
     }
 
