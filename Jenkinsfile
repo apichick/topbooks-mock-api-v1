@@ -10,6 +10,7 @@ pipeline {
             steps {
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'apigee-credentials',
                             usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {     
+                    ssh 'echo $params.ORGANIZATION'
                     sh 'gulp -u ${USERNAME} -p ${PASSWORD} -o ${params.ORGANIZATION} -e ${params.ENVIRONMENT} deploy'
                 }
             }
