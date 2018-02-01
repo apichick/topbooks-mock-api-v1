@@ -6,16 +6,11 @@ pipeline {
         string(name: 'ENVIRONMENT', description: 'Apigee Environment')
     }
     stages {
-        stage('Test-Parameters'){
-            steps {
-                sh "echo ${params.ORGANIZATION}"
-            }
-        }
-        stage('Test-Credentials'){
+        stage('Test'){
             steps {
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'apigee-credentials',
                             usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {     
-                    sh 'echo ${USERNAME}'
+                    sh "gulp -u ${USERNAME} -p ${PASSWORD} -o ${params.ORGANIZATION} -e ${params.ENVIRONMENT} deploy"
                 }
             }
         }
