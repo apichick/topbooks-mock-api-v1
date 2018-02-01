@@ -7,11 +7,12 @@ pipeline {
 
         }
     }
-	
-    stage('Test'){
+	stages {
+        stage('Test'){
 
-        sh 'echo $USERNAME'
+            sh 'echo $USERNAME'
 
+        }
     }
 
 }
