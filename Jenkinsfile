@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Test-Parameters'){
             steps {
-                sh 'echo ${params.ORGANIZATION}'
+                sh "echo ${params.ORGANIZATION}"
             }
         }
         stage('Test-Credentials'){
